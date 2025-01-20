@@ -1,0 +1,42 @@
+<!-- expenses/templates/expenses/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Gastos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <nav class="bg-white shadow-lg mb-6">
+      <div class="container mx-auto px-6 py-3">
+        <div class="flex justify-between">
+          <div class="flex space-x-4">
+            <a
+              href="{% url 'index' %}"
+              class="text-gray-800 hover:text-gray-600"
+              >Inicio</a
+            >
+            <a
+              href="{% url 'departamento_list' %}"
+              class="text-gray-800 hover:text-gray-600"
+              >Departamentos</a
+            >
+            <a
+              href="{% url 'empleado_list' %}"
+              class="text-gray-800 hover:text-gray-600"
+              >Empleados</a
+            >
+            <a
+              href="{% url 'gasto_list' %}"
+              class="text-gray-800 hover:text-gray-600"
+              >Gastos</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-6">{% block content %}{% endblock %}</div>
+  </body>
+</html>

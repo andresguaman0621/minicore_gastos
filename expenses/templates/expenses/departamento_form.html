@@ -1,0 +1,32 @@
+<!-- expenses/templates/expenses/departamento_form.html -->
+{% extends 'expenses/base.html' %} {% block content %}
+<div class="bg-white shadow rounded-lg p-6">
+  <h2 class="text-2xl font-bold mb-6">{{ action }} Departamento</h2>
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-gray-700"
+        >Nombre del Departamento</label
+      >
+      {{ form.dept }} {% if form.dept.errors %} {% for error in form.dept.errors
+      %}
+      <p class="text-red-500 text-sm">{{ error }}</p>
+      {% endif %}
+    </div>
+    <div class="flex justify-end space-x-4 mt-6">
+      <a
+        href="{% url 'departamento_list' %}"
+        class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+      >
+        Cancelar
+      </a>
+      <button
+        type="submit"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

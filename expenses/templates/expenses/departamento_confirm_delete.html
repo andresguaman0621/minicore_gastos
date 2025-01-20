@@ -1,0 +1,32 @@
+<!-- expenses/templates/expenses/departamento_confirm_delete.html -->
+{% extends 'expenses/base.html' %} {% block content %}
+<div class="bg-white shadow rounded-lg p-6">
+  <h2 class="text-2xl font-bold mb-6">Confirmar Eliminación de Departamento</h2>
+  <div class="mb-6">
+    <p class="text-gray-700">
+      ¿Está seguro que desea eliminar el departamento "{{ departamento.dept }}"?
+    </p>
+    <p class="text-red-600 mt-4">
+      Advertencia: Esta acción también eliminará todos los empleados y gastos
+      asociados a este departamento.
+    </p>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div class="flex justify-end space-x-4">
+      <a
+        href="{% url 'departamento_list' %}"
+        class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+      >
+        Cancelar
+      </a>
+      <button
+        type="submit"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+      >
+        Confirmar Eliminación
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

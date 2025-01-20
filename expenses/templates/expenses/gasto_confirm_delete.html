@@ -1,0 +1,35 @@
+<!-- expenses/templates/expenses/gasto_confirm_delete.html -->
+{% extends 'expenses/base.html' %} {% block content %}
+<div class="bg-white shadow rounded-lg p-6">
+  <h2 class="text-2xl font-bold mb-6">Confirmar Eliminación de Gasto</h2>
+  <div class="mb-6">
+    <p class="text-gray-700">
+      ¿Está seguro que desea eliminar el siguiente gasto?
+    </p>
+    <div class="mt-4 p-4 bg-gray-50 rounded">
+      <p><strong>Fecha:</strong> {{ gasto.fecha }}</p>
+      <p><strong>Descripción:</strong> {{ gasto.descripcion }}</p>
+      <p><strong>Monto:</strong> $ {{ gasto.monto }}</p>
+      <p><strong>Empleado:</strong> {{ gasto.empleado }}</p>
+      <p><strong>Departamento:</strong> {{ gasto.departamento }}</p>
+    </div>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div class="flex justify-end space-x-4">
+      <a
+        href="{% url 'gasto_list' %}"
+        class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+      >
+        Cancelar
+      </a>
+      <button
+        type="submit"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+      >
+        Confirmar Eliminación
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
